@@ -1,0 +1,11 @@
+data_tables:
+  options:
+    language: fr-FR
+    lengthMenu: [10, 25, 50]
+    pageLength: 10
+  template_parameters:
+    class: 'table'
+  extensions:
+    buttons: [csv, excel, pdf, print]
+    # select:
+    #   style: single

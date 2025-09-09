@@ -1,0 +1,29 @@
+<div{{attributes}}>
+	<div class="container my-4">
+		<div class="row align-items-center mb-3">
+			<div class="col-md-4">
+				<label for="period" class="form-label fw-semibold">
+					Choisir la période
+				</label>
+				<select id="period" class="form-select" data-model="norender|currentPeriod">
+					<option value="1">Cette Semaine</option>
+					<option value="-1">La semaine dernière</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<button class="btn btn-outline-dark" data-action="live#$render"> filter</button>
+		</div>
+	</div>
+
+	<div class="card shadow-sm p-3">
+		<div class="card-body">
+			<h5 class="card-title text-center mb-4">Statistiques Hebdomadaires</h5>
+			<div data-loading="addClass(opacity-50)">
+				{{ render_chart(showChartWeek) }}
+			</div>
+		</div>
+	</div>
+</div>
