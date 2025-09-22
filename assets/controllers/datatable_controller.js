@@ -18,8 +18,12 @@ export default class extends Controller {
         // You can access the config that will be passed to "new DataTable()"
         console.log(event.detail.config);
 
-        if($('#usersTable_wrapper').length){
+        if ($('#usersTable_wrapper').length) {
             $('#usersTable_wrapper').remove();
+        }
+
+        if ($('#countriesDataTable_wrapper').length) {
+            $('#countriesDataTable_wrapper').remove();
         }
 
         // For instance you can define a render callback for a given column

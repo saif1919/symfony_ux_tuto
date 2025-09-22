@@ -13,7 +13,7 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 final class StatShopOnline
 {
     #[LiveProp(writable: true)]
-    public array $selectedMonths = [];
+    public ?string $selectedMonths = null;
 
     #[LiveProp(writable: false)]
     public array $months = [];
@@ -110,7 +110,7 @@ final class StatShopOnline
     //     return array_column($brutData, 'month');
     // }
 
-    public function filterData(array $selectedMonths)
+    public function filterData(?string $selectedMonths)
     {
         $data = [
             ['month' => 'Janvier',   'sales' => 120, 'visits' => 800],
@@ -128,11 +128,12 @@ final class StatShopOnline
 
         ];
 
-        if (empty($selectedMonths)) {
+        if (empty($selectedMonths) || is_null($selectedMonths) ) {
             $filtered = $data;
         } else {
             $filtered = array_filter($data, function ($item) use ($selectedMonths) {
-                return in_array($item['month'], $selectedMonths);
+                // return in_array($item['month'], $selectedMonths);
+                return $item['month'] === $selectedMonths;
             });
         }
         return [

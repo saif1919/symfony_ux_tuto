@@ -1,0 +1,8 @@
+<div{{attributes}}>
+	<div class="card shadow-sm p-4 h-100">
+		<h5 class="card-title mb-3">Détails par pays</h5>
+		<div style="position: relative; width: 100%; max-height: 500px; overflow-y: auto;">
+			{{ render_datatable(datatablesStatEurope, {'data-controller': 'datatable'}) }}
+		</div>
+	</div>
+</div>

@@ -6,7 +6,7 @@
 
 			<div class="card shadow-sm p-4 mb-4">
 				<label for="months" class="form-label fw-bold mb-2">Filtrer par mois :</label>
-				<select id="months" name="months" class="form-select" data-model="selectedMonths" data-controller= "symfony--ux-autocomplete--autocomplete">
+				<select id="months" name="months" class="form-select"  data-model="selectedMonths" data-controller= "symfony--ux-autocomplete--autocomplete">
 					{% for m in months %}
 						<option value="{{ m }}">{{ m }}</option>
 					{% endfor %}

@@ -1,0 +1,15 @@
+<div{{attributes}}>
+	<div class="card shadow-sm p-4 h-100">
+		<h5 class="card-title mb-3">
+			Statistiques de population par
+			{% if selectedSubregion is null or selectedSubregion == '' %}
+				région
+			{% else %}
+				pays
+			{% endif %}
+		</h5>
+		<div style="position: relative; width: 100%; height: 500px;">
+			{{ render_chart(chartStatEurope) }}
+		</div>
+	</div>
+</div>

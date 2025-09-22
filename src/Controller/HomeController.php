@@ -113,4 +113,16 @@ final class HomeController extends AbstractController
     {
         return $this->render('home/showstat.html.twig', []);
     }
+
+    #[Route('/europeStat', name: 'app_europe_stat')]
+    public function europeStat(): Response
+    {
+        return $this->render('home/showEuropeStat.html.twig', []);
+    }
+
+    #[Route('/europeStat2', name: 'app_europe_stat2')]
+    public function europeStat2(): Response
+    {
+        return $this->render('home/showEuropeStat2.html.twig', []);
+    }
 }

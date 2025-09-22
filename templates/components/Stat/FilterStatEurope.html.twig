@@ -1,0 +1,15 @@
+<div{{attributes}}>
+	<div class="card shadow-sm p-4 mb-4">
+		<label for="subregion" class="form-label fw-bold mb-2">Filtrer par région :</label>
+		<select id="subregion" name="subregion[]" class="form-select" data-model="selectedSubregion">
+			<option value="">Sélectionnez une région</option>
+			{% for sr in subregion %}
+				<option value="{{ sr }}" {{ selectedSubregion == sr ? 'selected' : '' }}>{{ sr }}</option>
+			{% endfor %}
+		</select>
+        {# <button data-action="live#emit" data-live-event-param="selectedSubregionEvent"
+        data-live-subregion-param="{{selectedSubregion}}">valider</button> #}
+        <button data-action="live#action"
+        data-live-action-param="emitSelectedSubregion">valider</button>
+	</div>
+</div>

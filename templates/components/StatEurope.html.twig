@@ -1,0 +1,41 @@
+<div {{ attributes }}>
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">📊 Tableau de bord combiné</h1>
+		
+        <div class="card shadow-sm p-4 mb-4">
+            <label for="subregion" class="form-label fw-bold mb-2">Filtrer par région :</label>
+            <select id="subregion" name="subregion[]" class="form-select"
+                    data-model="selectedSubregion">
+                <option value="">Sélectionnez une région</option>
+                {% for sr in subregion %}
+                    <option value="{{ sr }}" {{ selectedSubregion == sr ? 'selected' : '' }}>{{ sr }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-lg-6">
+                <div class="card shadow-sm p-4 h-100">
+                    <h5 class="card-title mb-3">
+                        Statistiques de population par
+                        {% if selectedSubregion is null or selectedSubregion == '' %}
+                            région
+                        {% else %}
+                            pays
+                        {% endif %}
+                    </h5>
+                    <div style="position: relative; width: 100%; height: 500px;">
+                        {{ render_chart(chartStatEurope) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="card shadow-sm p-4 h-100">
+                    <h5 class="card-title mb-3">Détails par pays</h5>
+                    <div style="position: relative; width: 100%; max-height: 500px; overflow-y: auto;">
+                        {{ render_datatable(datatablesStatEurope, {'data-controller': 'datatable'}) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
